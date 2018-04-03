@@ -1,3 +1,2 @@
-<h1>Qwadmin</h1>
-Meiziott
+# Qadmin
 Management System Based on Qwadmin thinkphp3.2.3
