@@ -1,0 +1,593 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form class="form-horizontal" id="form" method="post" action="{:U('update')}"  enctype="multipart/form-data">
+
+                            <!-- PAGE CONTENT BEGINS -->
+                            <input type="hidden" name="aid" value="{$program_series.program_series_id}" id="aid"/>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-0">
+                                    分类 </label>
+                                <div class="col-sm-9">
+                                    <select id="sid" name="sid" class="col-xs-10 col-sm-5">
+                                        <option value="0">--分类--</option>
+                                        {$category}
+                                    </select>
+
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"><font style="color:red;font-weight: bold;">*</font> 选择所属分类。</span>
+											</span>
+                                </div>
+                            </div>      
+                                                  
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    标题 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="title" id="title" placeholder="节目集标题"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['program_series_name']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"><font style="color:red;font-weight: bold;">*</font> 节目集标题。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    拼音 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="program_pinyin" id="program_pinyin" placeholder="节目集名拼音"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['program_pinyin']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目集标题拼音。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    别名 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="program_series_alias" id="program_series_alias" placeholder="节目集别名"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['program_series_alias']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目集别名。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div> 
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    英文名</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="program_series_en_name" id="program_series_en_name" placeholder="节目集英文名"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['program_series_en_name']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目集英文名。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>                                                       
+                            
+                            <div class="form-group">                                                        
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    类型 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="program_class" id="program_class" placeholder="节目集类型"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['program_class']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目集类型，如：武侠|古装|搞笑。</span>
+									</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    地区 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="zone" id="zone" placeholder="地区"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['zone']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"><font style="color:red;font-weight: bold;">*</font> 地区。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    导演 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="director" id="director" placeholder="导演"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['director']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">导演。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    主演 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="leading_role" id="leading_role" placeholder="主演"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['leading_role']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">主演， 如：张少华|何晶晶|赵亮。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>  
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    主演拼音 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="leading_role_pinyin" id="leading_role_pinyin" placeholder="主演名拼音"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['leading_role_pinyin']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">主演拼音， 如：zsh|hjj|zl。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>                              
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    标签 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="tag" id="tag" placeholder="标签"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['tag']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">标签， 如：幽默|动作|武侠|后宫。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>                                                        
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    片长 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="time_length" id="time_length" placeholder="片长"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['time_length']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">影片播放时长（分钟）。</span>
+											</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    年代 </label>
+                                <div class="col-sm-9">
+									<input type="text" name="years" id="years" placeholder="年代" class="col-xs-10 col-sm-5" value="{$program_series['years']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">年代。</span>
+											</span>
+                                </div>
+                            </div>                            
+
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    上映日期 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="premiere_date" id="premiere_date" placeholder="上映日期"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['premiere_date']}" 
+                                           data-date-format="dd-mm-yyyy"/>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">影片上映日期。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>                                                       
+
+                            <div class="form-group" id="post_1">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-4">
+                                    海报_POST</label>
+                                <div class="col-sm-9">
+                                    <div class="col-xs-10 col-sm-5">
+                                        {:UpFtp("poster",104,203,$program_series['poster'])}
+                                    </div>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">仅支持jpg、gif、png、bmp、jpeg，且小于1MB。</span>
+											</span>
+                                </div>
+
+                            </div>
+                            <div class="space-4"></div>
+                                                                                      
+                           <div class="form-group">
+                                <label id="label_post_1" class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                   海报 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="post" id="post" value="{$program_series['poster']}" placeholder="post"
+                                           class="col-xs-10 col-sm-5"/>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<a href="javascript:;"><span class="middle" id="post_upload_1"><font style="color:red;font-weight: bold;">*</font> 上传POST</span></a>
+											</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-4"></div>
+                            <div class="form-group" id="post_2">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-4">
+                                    海报_SMALL</label>
+                                <div class="col-sm-9">
+                                    <div class="col-xs-10 col-sm-5">
+                                        {:UpFtp("small",100,140,$program_series['small_poster_addr'])}
+                                    </div>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">仅支持jpg、gif、png、bmp、jpeg，且小于1MB。</span>
+											</span>
+                                </div>
+
+                            </div>
+                            <div class="space-4"></div>
+
+
+                            <div class="form-group">
+                                <label id="label_post_2" class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                   海报 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="small_post_addr" id="small_post_addr" value="{$program_series['small_poster_addr']}" placeholder="small_post_addr"
+                                           class="col-xs-10 col-sm-5"/>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<a href="javascript:;"><span class="middle" id="post_upload_2"><font style="color:red;font-weight: bold;">*</font> 上传SMALL_POST_ADDR</span></a>
+											</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group" id="post_3">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-4">
+                                    海报_BIG</label>
+                                <div class="col-sm-9">
+                                    <div class="col-xs-10 col-sm-5">
+                                        {:UpFtp("big",222,313,$program_series['big_poster_addr'])}
+                                    </div>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">仅支持jpg、gif、png、bmp、jpeg，且小于1MB。</span>
+											</span>
+                                </div>
+
+                            </div>
+                            <div class="space-4"></div>
+
+
+                            <div class="form-group">
+                                <label id="label_post_3" class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                   海报 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="big_post_addr" id="big_post_addr" value="{$program_series['big_poster_addr']}" placeholder="big_post_addr"
+                                           class="col-xs-10 col-sm-5"/>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<a href="javascript:;"><span class="middle" id="post_upload_3"><font style="color:red;font-weight: bold;">*</font> 上传BIG_POST_ADDR</span></a>
+											</span>
+                                </div>
+                            </div>                            
+                      <!-- <div class="space-4"></div>
+							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2"> 是否上线 </label>
+                                <div class="control-label no-padding-left col-sm-1">
+                                    <label>
+                                        <input name="status" id="status" 
+                                        <if condition="$program_series['status'] eq 'ONLINE'"> checked="checked"</if>
+                                        class="ace ace-switch ace-switch-2" type="checkbox" />                                        
+                                        <span class="lbl"></span>
+                                    </label>
+                                </div>
+                                <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">YES，上线；NO，下线</span>
+										</span>
+                            </div>   -->                          
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    节目集简介 </label>
+                                <div class="col-sm-9">
+                                        <textarea name="program_series_desc" id="program_series_desc"
+                                                  style="width:793px;height:157px;visibility:hidden;">{$program_series['program_series_desc']}</textarea>
+                                </div>
+                            </div>
+                            <if condition="strtolower($program_series['status']) eq 'nopass'">
+                            <div class="space-4"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    审核描述 </label>
+                                <div class="col-sm-9">
+                                        <textarea  disabled="disabled" name="program_series_review_desc" id="program_series_review_desc"
+                                                  style="width:793px;height:157px; border:1px dashed #f7573c;">{$program_series['program_series_review_desc']}</textarea>
+                                </div>
+                            </div>                               
+                            </if>
+                            <div class="space-4"></div>
+                            <div class="col-md-offset-2 col-md-9">
+                                <button class="btn btn-info submit" type="button">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+
+                            <!-- PAGE CONTENT ENDS -->
+
+
+                        </form>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script src="__PUBLIC__/qwadmin/js/date-time/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#tabs").tabs();
+        var editor = KindEditor.create('textarea[name="program_series_desc"]', {
+            uploadJson: '__PUBLIC__/kindeditor/php/upload_json.php',
+            fileManagerJson: '__PUBLIC__/kindeditor/php/file_manager_json.php',
+            allowFileManager: true,
+	        items: [
+	                'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+	                'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+	                'insertunorderedlist', '|', 'emoticons', 'link'],            
+            afterBlur: function () {
+                this.sync();
+            }
+        });
+        $(".submit").click(function () {
+            var sid = $("#sid").val();
+            var title = $("#title").val();
+            var program_series_alias = $("#program_series_alias").val();
+            var zone = $("#zone").val();
+            var years = $("#years").val();
+            var post = $("#post").val();
+            var small_post_addr = $("#small_post_addr").val();
+            var big_post_addr = $("#big_post_addr").val();
+            var content = $("#program_series_desc").val();
+            if (sid == 0) {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目集分类必须选择。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (title == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目集标题必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            //------------------------------>  
+            if (zone == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目集地区必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;zone
+            }              
+            if (years == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目集年代必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (post == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目集POST海报必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (small_post_addr == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目集SAMLL_POST海报必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (big_post_addr == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目集BIG_POST海报必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            //------------------------------>
+            if (content == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目集简介必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+                return;
+            }
+            $("#form").submit();
+        });
+    });
+    
+	jQuery(function ($) {
+	     $('#premiere_date').datepicker({
+	          format: 'yyyy-mm-dd',
+	          weekStart: 1,
+	          autoclose: true,
+	          todayBtn: 'linked',
+	          language: 'cn'
+	     });
+	     $('#years').datepicker({
+	         format: 'yyyy',  
+	         weekStart: 1,  
+	         autoclose: true,  
+	    	 startView: 2,  
+	    	 maxViewMode: 2,
+	    	 minViewMode:2, 
+	    	 language: 'cn'  
+	     });		     
+	 });
+	
+	$(function(){
+		//默认隐藏post
+		$("#post_1").hide();
+		$("#post_2").hide();
+		$("#post_3").hide();
+		//post
+		$("#post_upload_1").click(function(){
+			var label_txt_1 = $("#post_upload_1").html().trim();
+			if(label_txt_1 ==='填写POST'){
+				$("#post_upload_1").html('上传POST');
+			}else if(label_txt_1 ==='上传POST'){
+				$("#post_upload_1").html('填写POST');
+			}			
+			var label_1 = $("#label_post_1").html().trim();
+			$("#post_1").toggle();			
+			if(label_1==='海报'){
+				$("#label_post_1").html('');
+		    }
+			else if(label_1===''){
+				$("#label_post_1").html('海报');
+			}			
+		});
+		
+		//post_small
+		$("#post_upload_2").click(function(){
+			var label_txt_2 = $("#post_upload_2").html().trim();
+			if(label_txt_2 ==='填写SMALL_POST_ADDR'){
+				$("#post_upload_2").html('上传SMALL_POST_ADDR');
+			}else if(label_txt_2 ==='上传SMALL_POST_ADDR'){
+				$("#post_upload_2").html('填写SMALL_POST_ADDR');
+			}
+			
+			var label_2 = $("#label_post_2").html().trim();
+			$("#post_2").toggle();
+			if(label_2==='海报'){
+				$("#label_post_2").html('');
+		    }
+			else if(label_2===''){
+				$("#label_post_2").html('海报');
+			}
+			
+		});	
+		
+		//post_big
+		$("#post_upload_3").click(function(){
+			var label_txt_3 = $("#post_upload_3").html().trim();
+			if(label_txt_3 ==='填写BIG_POST_ADDR'){
+				$("#post_upload_3").html('上传BIG_POST_ADDR');
+			}else if(label_txt_3 ==='上传BIG_POST_ADDR'){
+				$("#post_upload_3").html('填写BIG_POST_ADDR');
+			}
+			
+			var label_3 = $("#label_post_3").html().trim();
+			$("#post_3").toggle();
+			if(label_3==='海报'){
+				$("#label_post_3").html('');
+		    }
+			else if(label_3===''){
+				$("#label_post_3").html('海报');
+			}
+			
+		});				
+	});
+</script>   
+
+</body>
+</html>

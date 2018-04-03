@@ -1,0 +1,354 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form class="form-horizontal" id="form" method="post" action="{:U('update')}"  enctype="multipart/form-data">
+
+                            <!-- PAGE CONTENT BEGINS -->
+                            <input type="hidden" name="aid" value="{$program_series.program_series_id}" id="aid"/>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-0">
+                                    分类 </label>
+                                <div class="col-sm-9">
+                                    <select id="sid" name="sid" class="col-xs-10 col-sm-5">
+                                        <option value="0">--分类--</option>
+                                        {$category}
+                                    </select>
+
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">选择所属分类。</span>
+											</span>
+                                </div>
+                            </div>      
+                                                  
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    标题 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="title" id="title" placeholder="节目名"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['program_series_name']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目标题不能为空。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    拼音 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="program_pinyin" id="program_pinyin" placeholder="节目名拼音"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['program_pinyin']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目标题拼音。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    别名 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="program_series_alias" id="program_series_alias" placeholder="节目别名"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['program_series_alias']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目别名不能为空。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div> 
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    英文名</label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="program_series_en_name" id="program_series_en_name" placeholder="节目英文名"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['program_series_en_name']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目英文名。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>                                                       
+                            
+                            <div class="form-group">                                                        
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    类型 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="program_class" id="program_class" placeholder="节目类型"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['program_class']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目类型，如：武侠|古装|搞笑。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    地区 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="zone" id="zone" placeholder="地区"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['zone']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">地区。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    导演 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="director" id="director" placeholder="导演"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['director']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">导演。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    主演 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="leading_role" id="leading_role" placeholder="主演"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['leading_role']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">主演， 如：张少华|何晶晶|赵亮。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>  
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    主演拼音 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="leading_role_pinyin" id="leading_role_pinyin" placeholder="主演名拼音"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['leading_role_pinyin']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">主演拼音， 如：zsh|hjj|zl。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>                              
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    标签 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="tag" id="tag" placeholder="标签"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['tag']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">标签， 如：幽默|动作|武侠|后宫。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>                                                        
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    片长 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="time_length" id="time_length" placeholder="片长"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['time_length']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">影片播放时长（分钟）。</span>
+											</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    年代 </label>
+                                <div class="col-sm-9">
+									<select name="years" class="col-xs-10 col-sm-5">
+									    <option >--年代--</option>
+										<option value="1998">1998</option>
+										<option value="1999">1999</option>
+										<option value="2000">2000</option>
+										<option value="2001">2001</option>
+									</select>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">年代。</span>
+											</span>
+                                </div>
+                            </div>                            
+
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    上映日期 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="premiere_date" id="premiere_date" placeholder="上映日期"
+                                           class="col-xs-10 col-sm-5" value="{$program_series['premiere_date']}" 
+                                           data-date-format="dd-mm-yyyy"/>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">影片上映日期。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>                                                       
+                                                          
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-4">
+                                    海报 </label>
+                                <div class="col-sm-9">
+                                    <div class="col-xs-10 col-sm-5">
+                                        {:UpImage("thumbnail",100,100,$program_series['poster'])}
+                                    </div>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">仅支持jpg、gif、png、bmp、jpeg，且小于1MB。</span>
+											</span>
+                                </div>
+
+                            </div>
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    简介 </label>
+                                <div class="col-sm-9">
+                                        <textarea name="program_series_desc" id="program_series_desc"
+                                                  style="width:100%;height:400px;visibility:hidden;">{$program_series['program_series_desc']}</textarea>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+
+
+                            <div class="col-md-offset-2 col-md-9">
+                                <button class="btn btn-info submit" type="button">
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset">
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+
+                            <!-- PAGE CONTENT ENDS -->
+
+
+                        </form>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script src="__PUBLIC__/qwadmin/js/date-time/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#tabs").tabs();
+        var editor = KindEditor.create('textarea[name="program_series_desc"]', {
+            uploadJson: '__PUBLIC__/kindeditor/php/upload_json.php',
+            fileManagerJson: '__PUBLIC__/kindeditor/php/file_manager_json.php',
+            allowFileManager: true,
+            afterBlur: function () {
+                this.sync();
+            }
+        });
+        $(".submit").click(function () {
+            var sid = $("#sid").val();
+            var title = $("#title").val();
+            var content = $("#program_series_desc").val();
+            if (sid == 0) {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目分类必须选择。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (title == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目标题必须填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+            }
+            if (content == '') {
+                bootbox.dialog({
+                    title: '友情提示：',
+                    message: "节目简介需要填写。",
+                    buttons: {
+                        "success": {
+                            "label": "确定",
+                            "className": "btn-danger"
+                        }
+                    }
+                });
+                return;
+                return;
+            }
+            $("#form").submit();
+        });
+    });
+    
+	jQuery(function ($) {
+	     $('#premiere_date').datepicker({
+	          format: 'yyyy-mm-dd',
+	          weekStart: 1,
+	          autoclose: true,
+	          todayBtn: 'linked',
+	          language: 'cn'
+	     });
+	 });
+</script>   
+
+</body>
+</html>

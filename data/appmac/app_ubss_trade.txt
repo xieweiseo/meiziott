@@ -1,0 +1,22 @@
+2017-09-07 12:06:36 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":0,"Errordesc":""}
+2017-09-07 13:01:58 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:02:00 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:02:01 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:02:02 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:02:02 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:02:09 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:03:14 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:03:15 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:04:02 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:04:03 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:04:24 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:04:35 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:04:36 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:04:36 || 6C:EF:C6:00:C1:86 || 3716CEFC600C186 || update || {"Result":1,"Errordesc":"已存在"}
+2017-09-07 13:07:36 || 6C:EF:C6:00:C1:86 ||  || update || {"Result":1,"Errordesc":"数据为空"}
+2017-09-07 13:07:37 || 6C:EF:C6:00:C1:86 ||  || update || {"Result":1,"Errordesc":"数据为空"}
+2017-09-07 13:07:46 || 6C:EF:C6:00:C1:86 ||  || update || {"Result":1,"Errordesc":"数据为空"}
+2017-09-07 13:07:47 || 6C:EF:C6:00:C1:86 ||  || update || {"Result":1,"Errordesc":"数据为空"}
+2017-09-07 13:08:19 || 6C:EF:C6:00:C1:86 ||  || update || {"Result":1,"Errordesc":"数据为空"}
+2017-09-07 13:08:21 || 6C:EF:C6:00:C1:86 ||  || update || {"Result":1,"Errordesc":"数据为空"}
+2017-09-07 13:08:54 || 6C:EF:C6:00:C1:86 ||  || update || {"Result":1,"Errordesc":"数据为空"}

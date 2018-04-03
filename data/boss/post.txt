@@ -1,0 +1,217 @@
+2017-09-07 11:28:46 || <?xml version="1.0" encoding="utf-8"?>
+                <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                  <SOAP-ENV:Body>
+                    <m:Subscription xmlns:m="http://tempuri.org/BOSS.xsd">  
+                    <reqSubscription>
+                    <UserID>37100000297230</UserID> 
+                    <Login_name>37100000297230</Login_name> 
+                    <Password>123456</Password> 
+                    <Citycode>0371</Citycode>
+                    <Countycode></Countycode>
+                    <broadbandID></broadbandID>
+                    <OLTOffice>365</OLTOffice>
+                    <MAC></MAC>
+                    <OLTType></OLTType>
+                    <OLTManageIP></OLTManageIP>
+                    <OLTPort></OLTPort>
+                    <ONTDataPort></ONTDataPort>
+                    <ONTType></ONTType>
+                    <ONTDataSVLAN></ONTDataSVLAN>
+                    <ONTDataCVLAN></ONTDataCVLAN>
+                    <Productlist>
+                    <ProductListItem>
+                    <ProductID></ProductID>
+                    <ProductDesc>IPTV党员远程教育（华为）-test</ProductDesc> 
+                    </ProductListItem>
+                    </Productlist>
+                    <UsergroupID>DJIPTV</UsergroupID> 
+                    </reqSubscription>
+                    </m:Subscription>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>
+2017-09-07 11:28:59 || <?xml version="1.0" encoding="utf-8"?>
+                <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                  <SOAP-ENV:Body>
+                    <m:Subscription xmlns:m="http://tempuri.org/BOSS.xsd">  
+                    <reqSubscription>
+                    <UserID>37100000297230</UserID> 
+                    <Login_name>37100000297230</Login_name> 
+                    <Password>123456</Password> 
+                    <Citycode>0371</Citycode>
+                    <Countycode></Countycode>
+                    <broadbandID></broadbandID>
+                    <OLTOffice>365</OLTOffice>
+                    <MAC></MAC>
+                    <OLTType></OLTType>
+                    <OLTManageIP></OLTManageIP>
+                    <OLTPort></OLTPort>
+                    <ONTDataPort></ONTDataPort>
+                    <ONTType></ONTType>
+                    <ONTDataSVLAN></ONTDataSVLAN>
+                    <ONTDataCVLAN></ONTDataCVLAN>
+                    <Productlist>
+                    <ProductListItem>
+                    <ProductID></ProductID>
+                    <ProductDesc>IPTV党员远程教育（华为）-test</ProductDesc> 
+                    </ProductListItem>
+                    </Productlist>
+                    <UsergroupID>DJIPTV</UsergroupID> 
+                    </reqSubscription>
+                    </m:Subscription>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>
+2017-09-07 11:39:15 || <?xml version="1.0" encoding="utf-8"?>
+                <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                  <SOAP-ENV:Body>
+                    <m:Subscription xmlns:m="http://tempuri.org/BOSS.xsd">  
+                    <reqSubscription>
+                    <UserID>37100000297230</UserID> 
+                    <Login_name>37100000297230</Login_name> 
+                    <Password>123456</Password> 
+                    <Citycode>0371</Citycode>
+                    <Countycode></Countycode>
+                    <broadbandID></broadbandID>
+                    <OLTOffice>365</OLTOffice>
+                    <MAC></MAC>
+                    <OLTType></OLTType>
+                    <OLTManageIP></OLTManageIP>
+                    <OLTPort></OLTPort>
+                    <ONTDataPort></ONTDataPort>
+                    <ONTType></ONTType>
+                    <ONTDataSVLAN></ONTDataSVLAN>
+                    <ONTDataCVLAN></ONTDataCVLAN>
+                    <Productlist>
+                    <ProductListItem>
+                    <ProductID></ProductID>
+                    <ProductDesc>IPTV党员远程教育（华为）-test</ProductDesc> 
+                    </ProductListItem>
+                    </Productlist>
+                    <UsergroupID>DJIPTV</UsergroupID> 
+                    </reqSubscription>
+                    </m:Subscription>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>
+2017-09-07 12:59:48 || <?xml version="1.0" encoding="utf-8"?>
+                <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                  <SOAP-ENV:Body>
+                    <m:Subscription xmlns:m="http://tempuri.org/BOSS.xsd">  
+                    <reqSubscription>
+                    <UserID>37100000297230</UserID> 
+                    <Login_name>37100000297230</Login_name> 
+                    <Password>123456</Password> 
+                    <Citycode>0371</Citycode>
+                    <Countycode></Countycode>
+                    <broadbandID></broadbandID>
+                    <OLTOffice>365</OLTOffice>
+                    <MAC></MAC>
+                    <OLTType></OLTType>
+                    <OLTManageIP></OLTManageIP>
+                    <OLTPort></OLTPort>
+                    <ONTDataPort></ONTDataPort>
+                    <ONTType></ONTType>
+                    <ONTDataSVLAN></ONTDataSVLAN>
+                    <ONTDataCVLAN></ONTDataCVLAN>
+                    <Productlist>
+                    <ProductListItem>
+                    <ProductID></ProductID>
+                    <ProductDesc>IPTV党员远程教育（华为）-test</ProductDesc> 
+                    </ProductListItem>
+                    </Productlist>
+                    <UsergroupID>DJIPTV</UsergroupID> 
+                    </reqSubscription>
+                    </m:Subscription>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>
+2017-09-07 13:00:25 || <?xml version="1.0" encoding="utf-8"?>
+                <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                  <SOAP-ENV:Body>
+                    <m:Subscription xmlns:m="http://tempuri.org/BOSS.xsd">  
+                    <reqSubscription>
+                    <UserID>37100000297230</UserID> 
+                    <Login_name>37100000297230</Login_name> 
+                    <Password>123456</Password> 
+                    <Citycode>0371</Citycode>
+                    <Countycode></Countycode>
+                    <broadbandID></broadbandID>
+                    <OLTOffice>365</OLTOffice>
+                    <MAC></MAC>
+                    <OLTType></OLTType>
+                    <OLTManageIP></OLTManageIP>
+                    <OLTPort></OLTPort>
+                    <ONTDataPort></ONTDataPort>
+                    <ONTType></ONTType>
+                    <ONTDataSVLAN></ONTDataSVLAN>
+                    <ONTDataCVLAN></ONTDataCVLAN>
+                    <Productlist>
+                    <ProductListItem>
+                    <ProductID></ProductID>
+                    <ProductDesc>IPTV党员远程教育（华为）-test</ProductDesc> 
+                    </ProductListItem>
+                    </Productlist>
+                    <UsergroupID>DJIPTV</UsergroupID> 
+                    </reqSubscription>
+                    </m:Subscription>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>
+2017-09-07 13:00:26 || <?xml version="1.0" encoding="utf-8"?>
+                <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                  <SOAP-ENV:Body>
+                    <m:Subscription xmlns:m="http://tempuri.org/BOSS.xsd">  
+                    <reqSubscription>
+                    <UserID>37100000297230</UserID> 
+                    <Login_name>37100000297230</Login_name> 
+                    <Password>123456</Password> 
+                    <Citycode>0371</Citycode>
+                    <Countycode></Countycode>
+                    <broadbandID></broadbandID>
+                    <OLTOffice>365</OLTOffice>
+                    <MAC></MAC>
+                    <OLTType></OLTType>
+                    <OLTManageIP></OLTManageIP>
+                    <OLTPort></OLTPort>
+                    <ONTDataPort></ONTDataPort>
+                    <ONTType></ONTType>
+                    <ONTDataSVLAN></ONTDataSVLAN>
+                    <ONTDataCVLAN></ONTDataCVLAN>
+                    <Productlist>
+                    <ProductListItem>
+                    <ProductID></ProductID>
+                    <ProductDesc>IPTV党员远程教育（华为）-test</ProductDesc> 
+                    </ProductListItem>
+                    </Productlist>
+                    <UsergroupID>DJIPTV</UsergroupID> 
+                    </reqSubscription>
+                    </m:Subscription>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>
+2017-09-07 13:00:52 || <?xml version="1.0" encoding="utf-8"?>
+                <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                  <SOAP-ENV:Body>
+                    <m:Subscription xmlns:m="http://tempuri.org/BOSS.xsd">  
+                    <reqSubscription>
+                    <UserID>37100000297230</UserID> 
+                    <Login_name>37100000297230</Login_name> 
+                    <Password>123456</Password> 
+                    <Citycode>0371</Citycode>
+                    <Countycode></Countycode>
+                    <broadbandID></broadbandID>
+                    <OLTOffice>365</OLTOffice>
+                    <MAC></MAC>
+                    <OLTType></OLTType>
+                    <OLTManageIP></OLTManageIP>
+                    <OLTPort></OLTPort>
+                    <ONTDataPort></ONTDataPort>
+                    <ONTType></ONTType>
+                    <ONTDataSVLAN></ONTDataSVLAN>
+                    <ONTDataCVLAN></ONTDataCVLAN>
+                    <Productlist>
+                    <ProductListItem>
+                    <ProductID></ProductID>
+                    <ProductDesc>IPTV党员远程教育（华为）-test</ProductDesc> 
+                    </ProductListItem>
+                    </Productlist>
+                    <UsergroupID>DJIPTV</UsergroupID> 
+                    </reqSubscription>
+                    </m:Subscription>
+                  </SOAP-ENV:Body>
+                </SOAP-ENV:Envelope>

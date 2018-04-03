@@ -1,0 +1,36 @@
+<body class="no-skin">
+<div class="main-container" id="main-container">
+<script type="text/javascript">
+    try {
+        ace.settings.check('main-container', 'fixed')
+    } catch (e) {
+    }
+</script>
+
+<div class="cf">
+    <input id="chose" class="btn btn-info" type="button" value="确定">
+</div>
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(function () {
+        $(".btn-info").click(function(){
+            $.each($('input:checkbox'),function(){
+                if(this.checked){
+                    $('#src_file_path',parent.document).val($(this).val());
+                    $('#file_size',parent.document).val($(this).attr('file_size'));
+                    $('#file_type',parent.document).val($(this).attr('file_type'));
+                    $('#src_file_name',parent.document).val($(this).attr('src_file_name'));
+                }
+            });
+        	//parent.window.location.reload();
+            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+            parent.layer.close(index);
+        });
+   	   	  
+    })
+</script>
+</body>
+</html>

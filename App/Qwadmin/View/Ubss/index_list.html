@@ -1,0 +1,104 @@
+<include file="Public/head"/>
+
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="cf">
+           					<form class="form-inline" action="{:U('Ubss/index_list')}" method="get">                                                            
+                                <label class="inline"></label>
+                                <select name="status" class="form-control">
+                                    <option value="0">--状态--</option>
+                                    <option value="1" <if condition="I('status') eq '1'">selected="selected"</if>>已上报</option>
+                                    <option value="2" <if condition="I('status') eq '2'">selected="selected"</if>>未上报</option>
+                                </select>&nbsp;&nbsp;
+                                <label class="inline">用户名</label>&nbsp;&nbsp;
+                                <input type="text" name="username" value="{:I('username')}" class="form-control">&nbsp;&nbsp;
+                                <label class="inline">MAC</label>&nbsp;&nbsp;
+                                <input type="text" name="mac" value="{:I('mac')}" class="form-control">&nbsp;&nbsp;
+                                <label class="inline">区县 </label>
+                                <input type="text" name="county_code" value="{:I('county_code')}" class="form-control" style="width:96px">&nbsp;&nbsp;
+                                <input type="hidden" name="city_code" value="{:I('city_code')}">
+                                <input type="hidden" name="at_time" value="{:I('at_time')}">
+                                <button type="submit" class="btn btn-purple btn-sm">
+                                    <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+                                    搜索
+                                </button>
+                            </form>                        
+                        </div>
+                        <div class="space-4"></div>
+                        <form id="form" method="post" action="">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th class="center"><input class="check-all" type="checkbox" value=""></th>
+                                    <th>用户ID</th>
+                                    <th>用户名</th>
+                                    <th>产品ID</th>
+                                    <th>产品描述</th>                                    
+                                    <th>MAC</th>
+                                    <th>区县</th>
+                                    <th>状态</th>
+                                    <th>上报时间</th>
+                                    <th>更新时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="device_map_info" id="val">
+                                    <tr>
+                                        <td class="center"><input class="aids" type="checkbox" name="aids[]" value="{$val['program_id']}"></td>                                     
+                                        <td>{$val['customer_id']}</td>                                       
+                                        <td>{$val['user_name']}</td>
+                                        <td>{$val['product_id']}</td>
+                                        <td>{$val['product_desc']}</td>
+                                        <td>{$val['mac']}</td> 
+                                        <td>{$val['county_code']}</td>
+                                        <td><if condition="$val['mac'] neq ''"><span style="color:#70b165">已上报</span><else/>未上报</if></td>
+                                        <td>{$val['at_time']}</td>  
+                                        <td>{$val['up_time']}</td>                                                                     
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </form>
+                        <div class="cf">
+                            <input id="back" class="btn btn-info" type="button" value="返回">
+                            {$page} 每页显示  {$pagesize} 条 ,&nbsp;&nbsp;共   {$count} 条 
+                        </div>
+                        
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+<include file="Public/footerjs"/>
+<script>
+$("#back").click(function () {
+   window.location.href = "{:U('Ubss/index')}";
+});
+</script>
+</body>
+</html>

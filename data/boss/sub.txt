@@ -1,0 +1,8 @@
+
+2017-09-07 11:28:47 || null
+2017-09-07 11:29:00 || null
+2017-09-07 11:39:15 || "INSERT INTO bims_customer_device_map (`customer_id`,`city_code`,`user_name`,`product_id`,`product_desc`,`user_group_id`,`at_time`)values('1','0371','37100000297230','','IPTV\u515a\u5458\u8fdc\u7a0b\u6559\u80b2\uff08\u534e\u4e3a\uff09-test','DJIPTV','2017-09-07 11:39:15')"
+2017-09-07 12:59:48 || "INSERT INTO bims_customer_device_map (`customer_id`,`city_code`,`user_name`,`product_id`,`product_desc`,`user_group_id`,`at_time`)values('2','0371','37100000297230','','IPTV\u515a\u5458\u8fdc\u7a0b\u6559\u80b2\uff08\u534e\u4e3a\uff09-test','DJIPTV','2017-09-07 12:59:48')"
+2017-09-07 13:00:25 || "INSERT INTO bims_customer_device_map (`customer_id`,`city_code`,`user_name`,`product_id`,`product_desc`,`user_group_id`,`at_time`)values('3','0371','37100000297230','','IPTV\u515a\u5458\u8fdc\u7a0b\u6559\u80b2\uff08\u534e\u4e3a\uff09-test','DJIPTV','2017-09-07 13:00:25')"
+2017-09-07 13:00:26 || null
+2017-09-07 13:00:52 || null

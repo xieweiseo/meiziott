@@ -1,0 +1,228 @@
+<include file="Public/head"/>
+
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="cf">
+                            <form class="form-inline" action="{:U('Program/inject_list')}" method="get">                                                             
+                                <!-- <label class="inline">厂商</label> -->
+                                <select name="firms" class="form-control">
+                                    <option value="0">--选择--</option>
+                                    <option value="55555" <if condition="I('get.firms') eq '55555'">selected="selected"</if>>华为</option>
+                                    <option value="LTDJIPTV" <if condition="I('get.firms') eq 'LTDJIPTV'">selected="selected"</if>>中兴</option>
+                                </select>
+                                <label class="inline">节目标题</label>
+                                <input type="text" name="keyword" value="{:I('keyword')}" class="form-control">
+
+                                <label class="inline">&nbsp;&nbsp;节目排序</label>
+                                <select name="order" class="form-control">
+                                    <option value="desc" <if condition="I('order') eq desc">selected</if>>创建时间降序</option>
+                                    <option value="asc" <if condition="I('order') eq asc">selected</if> >创建时间升序</option>
+
+                                </select>
+                                
+								<label class="inline">&nbsp;&nbsp;注入时间</label>
+								<input type="text" name="at_time_start" value="{:I('at_time_start')}" class="form-control" id="at_time_start" style="width:96px"> -
+								<input type="text" name="at_time_end" value="{:I('at_time_end')}" class="form-control" id="at_time_end" style="width:96px">	
+                                
+                                <select name="status" class="form-control">
+                                    <option value="">---状态---</option>
+                                    <option value="create" <if condition="I('status') eq 'create'">selected</if>>注入</option>
+                                    <option value="update" <if condition="I('status') eq 'update'">selected</if> >更新</option>
+									<option value="delete" <if condition="I('status') eq 'delete'">selected</if> >删除</option>
+                                </select>
+                                          
+                                <select name="cmd_result" class="form-control">
+                                    <option value="">---结果---</option>
+                                    <option value="0" <if condition="I('cmd_result') eq '0'">selected</if>>成功</option>
+                                    <option value="1" <if condition="I('cmd_result') eq '1'">selected</if> >回调</option>
+									<option value="-1" <if condition="I('cmd_result') eq '-1'">selected</if> >失败</option>
+                                </select>
+                                                               
+                                <button type="submit" class="btn btn-purple btn-sm">
+                                    <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+                                    搜索
+                                </button>
+                            </form>
+                        </div>
+                        <div class="space-4"></div>
+                        <form id="form" method="post" action="{:U('Program/del_order')}">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th class="center"><input class="check-all" type="checkbox" value=""></th>
+                                    <th>订单ID</th>
+                                    <th>节目ID</th>
+                                    <th>节目标题</th>
+                                    <th>CSPID</th>
+                                    <th>LSPID</th>
+                                    <th>FIRMS</th>
+                                    <th>文件名</th>
+                                    <th>注入时间</th>
+                                    <th>状态</th>
+                                    <th>结果</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="list" id="val">
+                                    <tr>
+                                        <td class="center"><input class="aids" type="checkbox" name="aids[]" value="{$val['program_ids']}#{$val['lspid']}-{$val['cspid']}"></td>                                                                                                       
+                                        <td>{$val['corre_late_id']}</td>
+                                        <td>{$val['program_ids']}</td>
+                                        <td><a class="file_name" href="javascript:void(0)" data="{$val['program_name']}" title="{$val['program_name']}">{$val['program_name']|str_cut=26}</a></td>
+                                        <td>{$val['cspid']}</td>
+                                        <td>{$val['lspid']}</td>
+                                        <td>{$val['firms']}</td>
+                                        <td><a class="file_url" href="javascript:;" data="{$val['file_url']}">{$val['file_name']}</a></td>
+                                        <td>{$val['at_time']|date="Y-m-d H:i",###}</td>
+                                        <td>{$val['status']}</td>
+                                        <td><a class="cmd_result" href="javascript:;">{$val['cmd_result']}</a></td>	
+                                            <input type="hidden" name="order" value="ok" >	
+                                            <input type="hidden" name="firms"  value="{$val['lspid']}-{$val['cspid']}">
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </form>
+                        <div class="cf">
+                            <input id="del" class="btn btn-info" type="button" value="删除">
+                            <input id="cancell_order" class="btn btn-info" type="button" value="撤单">
+                        </div>
+                        {$page} 每页显示: {$pagesize} 条 ,&nbsp;&nbsp;共: {$count} 条
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script src="__PUBLIC__/qwadmin/js/date-time/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    $(function () {         
+        $(".check-all").click(function () {
+            $(".aids").prop("checked", this.checked);
+        });
+        $(".aids").click(function () {
+            var option = $(".ids");
+            option.each(function (i) {
+                if (!this.checked) {
+                    $(".check-all").prop("checked", false);
+                    return false;
+                } else {
+                    $(".check-all").prop("checked", true);
+                }
+            });
+        }); 
+        
+    	//checkbox只能选一个
+/*         $('.col-xs-12').find('input[type=checkbox]').bind('click', function(){
+            $('.col-xs-12').find('input[type=checkbox]').not(this).attr("checked", false);
+        }); */        
+        
+        $("#del").click(function () {
+    		if(!$('.aids').is(':checked')) {
+   		     	layer.msg('请选择要删除的节目！');  
+   		     	return;
+   		    }
+            bootbox.confirm({
+                title: "系统提示",
+                message: "是否要删除所选订单？",
+                callback: function (result) {
+                    if (result) { 
+                    	layer.msg('请联系管理员！'); 
+                        //$("#form").submit();
+                    }
+                },
+                buttons: {
+                    "cancel": {"label": "取消"},
+                    "confirm": {
+                        "label": "确定",
+                        "className": "btn-danger"
+                    }
+                }
+            });
+        });
+        
+        $("#cancell_order").click(function(){
+    		if(!$('.aids').is(':checked')) {
+   		     	layer.msg('请选择要撤单的节目！');  
+   		     	return;
+   		    }
+            bootbox.confirm({
+                title: "系统提示",
+                message: "是否要撤销该节目的注入工单？",
+                callback: function (result) {
+                    if (result) { 
+                    	$("form").attr("action","{:U('Program/inject')}").submit();
+                    }
+                },
+                buttons: {
+                    "cancel": {"label": "取消"},
+                    "confirm": {
+                        "label": "确定",
+                        "className": "btn-danger"
+                    }
+                }
+            });
+        });
+        
+        $(".cmd_result").click(function () {
+            var url = $(this).attr('val');
+            layer.msg('0/注入成功，-1/注入失败，1/回调没返回');
+        }); 
+        
+        $(".file_url").click(function () {
+            var url = $(this).attr('data');
+            layer.msg(url);
+        });
+        $(".file_name").click(function () {
+            var url = $(this).attr('data');
+            layer.msg(url);
+        });        
+        
+    });
+    
+	jQuery(function ($) {
+	     $('#at_time_start').datepicker({
+	          format: 'yyyy-mm-dd',
+	          weekStart: 1,
+	          autoclose: true,
+	          todayBtn: 'linked',
+	          language: 'cn'
+	     });	     
+	     $('#at_time_end').datepicker({
+	          format: 'yyyy-mm-dd',
+	          weekStart: 1,
+	          autoclose: true,
+	          todayBtn: 'linked',
+	          language: 'cn'
+	     });	     
+	 });    
+</script>
+</body>
+</html>

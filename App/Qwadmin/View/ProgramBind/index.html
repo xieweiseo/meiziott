@@ -1,0 +1,145 @@
+<include file="Public/head"/>
+
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="cf">
+                            <form class="form-inline" action="" method="get">                        
+                                <label class="inline">所属分类</label>
+                                <select name="sid" class="form-control">
+                                    <option value="0">--分类--</option>
+                                    {$category}
+                                </select>
+                                <label class="inline">节目标题</label>
+                                <input type="text" name="keyword" value="{:I('keyword')}" class="form-control">
+
+                                <label class="inline">&nbsp;&nbsp;节目排序：</label>
+                                <select name="order" class="form-control">
+                                    <option value="desc" <if condition="I('order') eq desc">selected</if>>创建时间降序</option>
+                                    <option value="asc" <if condition="I('order') eq asc">selected</if> >创建时间升序</option>
+
+                                </select>
+
+
+                                <button type="submit" class="btn btn-purple btn-sm">
+                                    <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+                                    搜索
+                                </button>
+                                
+                            </form>
+                        </div>
+                        <div class="space-4"></div>
+                        <form id="form" method="post" action="{:U('bind')}">
+                            <input type="hidden" name="aid" value="{$aid}">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th class="center"><input class="check-all" type="checkbox" value=""></th>
+                                    <th>节目ID</th>
+                                    <th>节目标题</th>
+                                    <th>年份</th>
+                                    <th>类型</th>
+                                    <th>华为 | 中兴 (注入)</th>
+                                    <th>组区域</th>
+                                    <th>创建时间</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="list" id="val">
+                                    <tr>
+                                        <td class="center"><input class="bids" type="checkbox" name="bids[]" value="{$val['program_id']}"></td>                                                                                                       
+                                        <td>{$val['program_id']}</td>
+                                        <td>{$val['program_name']}</td>
+                                        <td>{$val['years']}</td>
+                                        <td>{$val['program_class']}</td>
+                                        <td><if condition="$val['cms_result_hw_status'] eq 'create'">华为</if> <if condition="$val['cms_result_hw_inject'] neq -2 OR $val['cms_result_zte_inject'] neq -2">|</if> <if condition="$val['cms_result_zte_status'] eq 'create'">中兴</if></td>
+                                        <td>{$val['area_id']}</td>
+                                        <td>{$val['create_date']}</td>
+                                        <td><a id="btn_bind" href="javascript:;"><i
+                                                class="ace-icon fa fa-link bigger-100" ></i>绑定</a></td>
+                                                
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </form>
+                        <div class="cf">
+                            <input id="submit" class="btn btn-info" type="button" value="绑定">
+                        </div>
+                        {$page}
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(function () {
+        $(".check-all").click(function () {
+            $(".bids").prop("checked", this.checked);
+        });
+        $(".bids").click(function () {
+            var option = $(".ids");
+            option.each(function (i) {
+                if (!this.checked) {
+                    $(".check-all").prop("checked", false);
+                    return false;
+                } else {
+                    $(".check-all").prop("checked", true);
+                }
+            });
+        });              
+        $(".btn-info,#btn_bind").click(function () {
+    		$(this).parents("tr").find(":checkbox").attr("checked",true);
+    		if(!$('.bids').is(':checked')) {
+    		     layer.msg('请选择要绑定的节目！');  
+    		     return;
+    		 }
+             bootbox.confirm({
+                title: "系统提示",
+                message: "是否要绑定所选节目？",
+                callback: function (result) {
+                    if (result) {
+                        $("#form").submit();
+                    }
+                },
+                buttons: {
+                    "cancel": {"label": "取消"},
+                    "confirm": {
+                        "label": "确定",
+                        "className": "btn-danger"
+                    }
+                }
+            });
+        });
+    })
+</script>
+</body>
+</html>

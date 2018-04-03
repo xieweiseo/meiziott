@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<definitions name="soap" targetNamespace="urn:soap" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+<types xmlns="http://schemas.xmlsoap.org/wsdl/" />
+<portType name="soapPort"><operation name="greet">
+<input message="tns:greetRequest" />
+<output message="tns:greetResponse" />
+</operation>
+<operation name="serverTimestamp">
+<input message="tns:serverTimestampRequest" />
+<output message="tns:serverTimestampResponse" />
+</operation>
+<operation name="ResultNotifyRes">
+<input message="tns:ResultNotifyResRequest" />
+<output message="tns:ResultNotifyResResponse" />
+</operation>
+</portType>
+<binding name="soapBinding" type="tns:soapPort">
+<soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+<operation name="greet">
+<soap:operation soapAction="urn:soap#Service#greet" />
+<input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="serverTimestamp">
+<soap:operation soapAction="urn:soap#Service#serverTimestamp" />
+<input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+<operation name="ResultNotifyRes">
+<soap:operation soapAction="urn:soap#Service#ResultNotifyRes" />
+<input><soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</input>
+<output>
+<soap:body use="encoded" namespace="urn:soap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+</output>
+</operation>
+</binding>
+<service name="soap">
+<documentation />
+<port name="soapPort" binding="tns:soapBinding"><soap:address location="http://tt.meiziott.com:80/index.php/CommandsService" />
+</port>
+</service>
+<message name="greetRequest">
+<part name="name" type="xsd:string" />
+</message>
+<message name="greetResponse">
+<part name="greet" type="xsd:string" />
+</message>
+<message name="serverTimestampRequest">
+</message>
+<message name="serverTimestampResponse">
+<part name="serverTimestamp" type="xsd:string" />
+</message>
+<message name="ResultNotifyResRequest">
+<part name="cspid" type="xsd:string" />
+<part name="lspid" type="xsd:string" />
+<part name="corre_late_id" type="xsd:string" />
+<part name="cmd_result" type="xsd:string" />
+<part name="result_file_url" type="xsd:string" />
+</message>
+<message name="ResultNotifyResResponse">
+<part name="ResultNotifyRes" type="xsd:string" />
+</message>
+</definitions>

@@ -1,0 +1,632 @@
+<include file="Public/head"/>
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <form class="form-horizontal" id="form" name="form" method="post" action="{:U('update')}"  enctype="multipart/form-data">
+
+                            <!-- PAGE CONTENT BEGINS -->
+
+                            <input type="hidden" name="aid" value="{$program.program_id}" id="aid"/>
+                            <input type="hidden" name="tvid" value="{$program_bitrate['tv']['program_rate_id']}" id="tvid"/>
+                            <input type="hidden" name="mdid" value="{$program_bitrate['md']['program_rate_id']}" id="mdid"/>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-0">
+                                    分类 </label>
+                                <div class="col-sm-9">
+                                    <select id="sid" name="sid" class="col-xs-10 col-sm-5">
+                                        <option value="0">--分类--</option>
+                                        {$category}
+                                    </select>
+
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"><font style="color:red;font-weight: bold;">*</font> 选择所属分类。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    标题 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="title" id="title" placeholder="节目标题"
+                                           class="col-xs-10 col-sm-5" value="{$program['program_name']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"><font style="color:red;font-weight: bold;">*</font> 节目标题。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    英文 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="english_name" id="english_name" placeholder="节目英文名"
+                                           class="col-xs-10 col-sm-5" value="{$program['english_name']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目英文名称。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="form-group">                            
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    类型 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="material_class" id="material_class" placeholder="节目类型"
+                                           class="col-xs-10 col-sm-5" value="{$program['material_class']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目类型，如：花絮|访谈|文化。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                    集数 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="set_number" id="set_number" placeholder="节目集数"
+                                           class="col-xs-10 col-sm-5" value="{$program['set_number']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目集数，如 电视剧：13 。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>                        
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    地区 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="zone" id="zone" placeholder="地区"
+                                           class="col-xs-10 col-sm-5" value="{$program['zone']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目地区。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    导演 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="director" id="director" placeholder="导演"
+                                           class="col-xs-10 col-sm-5" value="{$program['director']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">导演。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    主演 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="leading_role" id="leading_role" placeholder="主演"
+                                           class="col-xs-10 col-sm-5" value="{$program['leading_role']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">主演， 如：江珊|韩青|周小斌。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>  
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    标签 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="tag" id="tag" placeholder="标签"
+                                           class="col-xs-10 col-sm-5" value="{$program['tag']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">标签， 如：江珊|韩青|周小斌|家庭。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>                                                        
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    片长 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="program_length" id="program_length" placeholder="片长"
+                                           class="col-xs-10 col-sm-5" value="{$program['program_length']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">影片播放时长（分钟）。</span>
+											</span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    年代 </label>
+                                <div class="col-sm-9">
+									<input type="text" name="years" id="years" placeholder="年代" class="col-xs-10 col-sm-5" value="{$program['years']}">
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目年代。</span>
+											</span>
+                                </div>
+                            </div>                            
+
+                            <div class="space-4"></div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    上映日期 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="premiere_date" id="premiere_date" placeholder="上映日期"
+                                           class="col-xs-10 col-sm-5" value="{$program['premiere_date']}" 
+                                           data-date-format="dd-mm-yyyy"/>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">影片上映日期。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>                            
+
+<!-- 							<div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="type"> 
+                                   节目方式 </label>
+                                <div class="col-sm-9">
+                                    <select id="type" name="type" class="col-xs-10 col-sm-5">
+                                        <option value="0" selected="selected">线上节目</option>
+                                        <option value="1">本地上传</option>
+                                    </select>
+
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">节目上传方式，选择本地上传或已上传的节目。</span>
+											</span>
+                                </div>
+                            </div> -->
+
+							<div class="space-4"></div> 
+							 
+                            <div class="form-group" id="local_upload">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    上传节目 </label>
+                                <div class="col-sm-9">
+                                    <div class="col-xs-10 col-sm-5">
+                                        {:UpFile(100,100,'src_file_name','file_size','file_type',$program_bitrate['src_file_name'],$program_bitrate['src_file_size'],$program_bitrate['src_file_type'])}
+                                    </div>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="upload_tips"></span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>   
+                                                
+						<!-- 节目上传地址  -->                            
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+             	节目源url      </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="src_file_path" id="src_file_path" placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$program_bitrate['tv']['src_file_path']}" />
+                                    <span class="help-inline col-xs-12 col-sm-7">&nbsp;&nbsp;(TV)</span>																								
+                                </div>
+                            </div>
+                            <div class="space-4"></div> 
+                              
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    播放url </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="play_url" id="play_url" value="{$program_bitrate['tv']['play_url']}" placeholder="外部url地址"
+                                           class="col-xs-10 col-sm-5"/>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"><font style="color:red;font-weight: bold;">*</font> (TV)填入外部节目播放地址 如：http://yule.sohu.com/n271233109.shtml。</span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>    
+ 
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+             	下载url      </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="down_url" id="down_url" placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$program_bitrate['tv']['down_url']}" />
+                                    <span class="help-inline col-xs-12 col-sm-7"><font style="color:red;font-weight: bold;">*</font> (TV)</span>																								
+                                </div>
+                            </div>
+                            <div class="space-4"></div>   
+ 
+                             <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+             	节目源名 </label>
+                                <div class="col-sm-9">
+									<input type="text" name="src_file_name" id="src_file_name"  placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$program_bitrate['tv']['src_file_name']}" />
+                                    <span class="help-inline col-xs-12 col-sm-7">&nbsp;&nbsp;(TV)</span>											
+                                </div>
+                            </div>
+                            <div class="space-4"></div>  
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                  清晰度 </label>
+                                <div class="col-sm-9">
+                                    <select id="definition_code" name="definition_code" class="col-xs-10 col-sm-5">
+                                        <option value="UHD" <if condition="$program['definition_code'] eq 'UHD'">selected="selected"</if>>UHD</option>
+                                        <option value="HD" <if condition="$program['definition_code'] eq 'HD'">selected="selected"</if>>HD</option>
+                                        <option value="SD" <if condition="$program['definition_code'] eq 'SD'">selected="selected"</if>>SD</option>
+                                    </select>       
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"><font style="color:red;font-weight: bold;">*</font> (TV)节目清晰度，如 电视剧：HD或SD 。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>                                 
+                            
+                        <!-- 手机端码率  --//start-->    
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+             	节目源url      </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="md_src_file_path" id="md_src_file_path" placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$program_bitrate['md']['src_file_path']}" />
+                                    <span class="help-inline col-xs-12 col-sm-7">&nbsp;&nbsp;(MD)手机端</span>																								
+                                </div>
+                            </div>
+                            <div class="space-4"></div> 
+                              
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    播放url </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="md_play_url" id="md_play_url" value="{$program_bitrate['md']['play_url']}" placeholder="外部url地址"
+                                           class="col-xs-10 col-sm-5"/>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"><font style="color:red;font-weight: bold;">*</font> (MD)填入外部节目播放地址 </span>
+											</span>
+                                </div>
+                            </div>
+
+                            <div class="space-4"></div>    
+ 
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+             	下载url      </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="md_down_url" id="md_down_url" placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$program_bitrate['md']['down_url']}" />
+                                    <span class="help-inline col-xs-12 col-sm-7"><font style="color:red;font-weight: bold;">*</font> (MD)</span>																								
+                                </div>
+                            </div>
+                            <div class="space-4"></div>   
+ 
+                             <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+             	节目源名</label>
+                                <div class="col-sm-9">
+									<input type="text" name="md_src_file_name" id="md_src_file_name"  placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$program_bitrate['md']['src_file_name']}" />
+                                    <span class="help-inline col-xs-12 col-sm-7">&nbsp;&nbsp;(MD)</span>											
+                                </div>
+                            </div>
+                            <div class="space-4"></div>  
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-1">
+                                  清晰度 </label>
+                                <div class="col-sm-9">
+                                    <select id="md_definition_code" name="md_definition_code" class="col-xs-10 col-sm-5">
+                                        <option value="MD" selected="selected">MD</option>
+                                    </select>       
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle"><font style="color:red;font-weight: bold;">*</font>  (MD)节目清晰度，如 电视剧：HD或SD 。</span>
+											</span>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>                               
+                                                       
+                   <!-- 手机端码率  --//end-->  
+                           
+                             <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+             	推荐二维码 </label>
+                                <div class="col-sm-9">
+									<input type="text" name="qr_code" id="qr_code"  placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$program['qr_code']}" />
+                                    <span class="help-inline col-xs-12 col-sm-7">推荐二维码url地址。</span>											
+                                </div>
+                            </div>
+                            <div class="space-4"></div>                               
+                           
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+             	节目源大小      </label>
+                                <div class="col-sm-9">
+									<input type="text" name="file_size" id="file_size"  placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$program_bitrate['src_file_size']}" />
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												
+											</span>	
+                                </div>
+                            </div>
+                            <div class="space-4"></div> 
+                                                         
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+             	节目源类型      </label>
+                                <div class="col-sm-9">
+									<input type="text" name="file_type" id="file_type"  placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$program_bitrate['src_file_type']}" />
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												
+											</span>	
+                                </div>
+                            </div>
+                            <div class="space-4"></div>   
+                                                       
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+             	节目提供商      </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="cp_code" id="cp_code" placeholder=""
+                                           class="col-xs-10 col-sm-5" value="{$program_bitrate['cp_code']}" readonly="readonly"/>
+                                    <span class="help-inline col-xs-12 col-sm-7"></span>																								
+                                </div>
+                            </div>
+                            <div class="space-4"></div>                                                                                                                  
+                                                          
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                   海报 </label>
+                                <div class="col-sm-9">
+                                    <input type="text" name="post" id="post" value="{$program['poster']}" placeholder="post"
+                                           class="col-xs-10 col-sm-5"/>
+                                    <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">post</span>
+											</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-4"></div>
+
+
+                            
+                            <div class="space-4"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label no-padding-right" for="form-field-2">
+                                    节目简介 </label>
+                                <div class="col-sm-9">
+                                        <textarea name="program_desc" id="program_desc"
+                                                  style="width:793px;height:157px;visibility:hidden;">{$program['program_desc']}</textarea>
+                                </div>
+                            </div>
+                            <div class="space-4"></div>
+
+
+                            <div class="col-md-offset-2 col-md-9">
+                                <button class="btn btn-info submit" type="button" <if condition="$act eq 'bview'">disabled='disabled'</if>>
+                                    <i class="icon-ok bigger-110"></i>
+                                    提交
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn" type="reset" <if condition="$act eq 'bview'">disabled='disabled'</if>>
+                                    <i class="icon-undo bigger-110"></i>
+                                    重置
+                                </button>
+                            </div>
+                            <!-- PAGE CONTENT ENDS -->
+                        </form>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script src="__PUBLIC__/qwadmin/js/date-time/bootstrap-datepicker.js"></script>
+<script src="__PUBLIC__/qwadmin/js/layer/layer.js"></script>
+<link rel="stylesheet" href="__PUBLIC__/qwadmin/js/layer/skin/default/layer.css"/>
+<script type="text/javascript">
+    $(function () {
+        //$("#tabs").tabs();
+        var editor = KindEditor.create('textarea[name="program_desc"]', {
+            uploadJson: '__PUBLIC__/kindeditor/php/upload_json.php',
+            fileManagerJson: '__PUBLIC__/kindeditor/php/file_manager_json.php',
+            allowFileManager: true,
+	        items: [
+	                'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+	                'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+	                'insertunorderedlist', '|', 'emoticons', 'link'],            
+            afterBlur: function () {
+                this.sync();
+            }
+	        });        
+           $(".submit").click(function () {
+	            var sid = $("#sid").val();
+	            var title = $("#title").val();	            
+	            var play_url = $("#play_url").val();
+	            var down_url = $("#down_url").val();
+	            var md_play_url = $("#md_play_url").val();
+	            var md_down_url = $("#md_down_url").val();
+	            var content = $("#program_desc").val();
+	            if (sid == 0) {
+	                bootbox.dialog({
+	                    title: '友情提示：',
+	                    message: "节目分类必须选择。",
+	                    buttons: {
+	                        "success": {
+	                            "label": "确定",
+	                            "className": "btn-danger"
+	                        }
+	                    }
+	                });
+	                return;
+                }
+	            if (title == '') {
+	                bootbox.dialog({
+	                    title: '友情提示：',
+	                    message: "节目标题必须填写。",
+	                    buttons: {
+	                        "success": {
+	                            "label": "确定",
+	                            "className": "btn-danger"
+	                        }
+	                    }
+	                });
+	                return;
+	            }
+				//------------------------->         
+	            if (play_url == '') {
+	                bootbox.dialog({
+	                    title: '友情提示：',
+	                    message: "TV端播放地址必须填写。",
+	                    buttons: {
+	                        "success": {
+	                            "label": "确定",
+	                            "className": "btn-danger"
+	                        }
+	                    }
+	                });
+	                return;
+	            }
+	            if (down_url == '') {
+	                bootbox.dialog({
+	                    title: '友情提示：',
+	                    message: "TV段下载地址必须填写。",
+	                    buttons: {
+	                        "success": {
+	                            "label": "确定",
+	                            "className": "btn-danger"
+	                        }
+	                    }
+	                });
+	                return;
+	            }		            
+	            if (md_play_url == '') {
+	                bootbox.dialog({
+	                    title: '友情提示：',
+	                    message: "手机端播放地址必须填写。",
+	                    buttons: {
+	                        "success": {
+	                            "label": "确定",
+	                            "className": "btn-danger"
+	                        }
+	                    }
+	                });
+	                return;
+	            }	
+	            if (md_down_url == '') {
+	                bootbox.dialog({
+	                    title: '友情提示：',
+	                    message: "手机端下载地址必须填写。",
+	                    buttons: {
+	                        "success": {
+	                            "label": "确定",
+	                            "className": "btn-danger"
+	                        }
+	                    }
+	                });
+	                return;
+	            }
+	            
+	            //--------------------------->
+	            
+	            if (content == '') {
+	                bootbox.dialog({
+	                    title: '友情提示：',
+	                    message: "节目简介需要填写。",
+	                    buttons: {
+	                        "success": {
+	                            "label": "确定",
+	                            "className": "btn-danger"
+	                        }
+	                    }
+	                });
+	                return;
+	                return;
+	            }
+	            $("#form").submit();
+        });
+    });
+    
+	jQuery(function ($) {
+	     $('#premiere_date').datepicker({
+	          format: 'yyyy-mm-dd',
+	          weekStart: 1,
+	          autoclose: true,
+	          todayBtn: 'linked',
+	          language: 'cn'
+	     });	     
+	     $('#years').datepicker({
+	         format: 'yyyy',  
+	         weekStart: 1,  
+	         autoclose: true,  
+	    	 startView: 2,  
+	    	 maxViewMode: 2,
+	    	 minViewMode:2, 
+	    	 language: 'cn'  
+	     });	     
+	 });
+
+	$(function(){
+		
+		$("#local_upload").addClass('hidden');
+		$("#type").change(function(){
+			if($(this).val()==0){
+				$("#local_upload").addClass('hidden');
+			}
+			else if($(this).val()==1){
+				$("#local_upload").removeClass('hidden');
+			}
+			else{
+				$("#local_upload").addClass('hidden');
+			}
+		});
+		 
+		 $("#change_program").click(function () {
+			 layer.open({
+				  type: 2,
+				  title: '选择已上传节目文件',
+				  shadeClose: true,
+				  shade: 0,
+				  offset: 'r', //右下角弹出
+				  area: ['790px', '70%'],
+				  content: "{:U('get_index')}" //iframe的url
+				}); 
+		 });
+	});		
+</script>   
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<include file="Public/head"/>
+
+<body class="no-skin">
+<include file="Public/header"/>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <include file="Public/sidebar"/>
+    <div class="main-content">
+        <div class="main-content-inner">
+            <!-- #section:basics/content.breadcrumbs -->
+            <include file="Public/breadcrumbs"/>
+            <!-- /section:basics/content.breadcrumbs -->
+            <div class="page-content">
+                <include file="Public/set"/>
+
+                <!-- /section:settings.box -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+                        <div class="cf">
+                            <form class="form-inline" action="{:U('Program/index')}" method="get">
+                                <a class="btn btn-info" href="{:U('add')}" value="">新增</a> 
+                                <a class="btn btn-info" href="{:U('import')}" value="">导入</a>                                                               
+                                <label class="inline">所属分类</label>
+                                <select name="sid" class="form-control">
+                                    <option value="0">--分类--</option>
+                                    {$category}
+                                </select>
+                                <label class="inline">节目标题</label>
+                                <input type="text" name="keyword" value="{:I('keyword')}" class="form-control">
+
+                                <label class="inline">&nbsp;&nbsp;节目排序：</label>
+                                <select name="order" class="form-control">
+                                    <option value="desc" <if condition="I('order') eq desc">selected</if>>创建时间降序</option>
+                                    <option value="asc" <if condition="I('order') eq asc">selected</if> >创建时间升序</option>
+
+                                </select>
+
+
+                                <button type="submit" class="btn btn-purple btn-sm">
+                                    <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+                                    搜索
+                                </button>
+                            </form>
+                        </div>
+                        <div class="space-4"></div>
+                        <form id="form" method="post" action="{:U('ProgramBind/index')}">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th class="center"><input class="check-all" type="checkbox" value=""></th>
+                                    <th>分类</th>
+                                    <th>节目ID</th>
+                                    <th>节目标题</th>
+                                    <th>年份</th>
+                                    <th>类型</th>
+                                    <th>创建时间</th>
+                                    <th>华为</th>
+                                    <th>状态</th>
+                                    <th>中兴</th>
+                                    <th>状态</th>
+                                    <th>区域</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="list" id="val">
+                                    <tr>
+                                        <td class="center"><input class="aids" type="checkbox" name="aids[]" value="{$val['program_id']}"></td>                                                                 
+                                        <td><a href="{:U('index',array('sid'=>$val['sid']))}" title="{$val['material_type_name']}">{$val['material_type_name']}</a></td>                                       
+                                        <td>{$val['program_id']}</td>
+                                        <td><a title="{$val['program_name']}" style="text-decoration:none; color:#393939">{$val['program_name']|str_cut=46}</a></td>
+                                        <td>{$val['years']}</td>
+                                        <td>{$val['material_class']}</td>                                      
+                                        <td>{$val['create_date']}</td>
+                                        <td><if condition="$val['cms_result_hw_inject'] neq -2">{$val['cms_result_hw_inject']}</if></td>
+                                        <td>{$val['cms_result_hw_status']}</td>
+                                        <td><if condition="$val['cms_result_zte_inject'] neq -2">{$val['cms_result_zte_inject']}</if></td>
+                                        <td>{$val['cms_result_zte_status']}</td>
+                                        <td>{$val['area_name']}</td>
+                                        <td><a href="{:U('edit',array('aid'=>$val['program_id']))}"><i
+                                                class="ace-icon fa fa-pencil bigger-100"></i>修改</a>&nbsp&nbsp;<a
+                                                href="javascript:;" val="{:U('del',array('aids'=>$val['program_id']))}" class="del"><i
+                                                class="ace-icon fa fa-trash-o bigger-100 red"></i>删除</a>
+                                                <input type="hidden" id="firms" name="firms" value="">
+                                                </td>                                      
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </form>
+                        <div class="cf">
+                            <input id="del" class="btn btn-info" type="button" value="删除">
+                            <input id="inject" class="btn btn-info" type="button" value="注入/更新">   
+                            <select id="select_firms" name="select_firms" style="height:36px;">
+                             <option value="0" selected="selected">--选择--</option>
+                             <option value="55555-dangjian">华为</option>
+                             <option value="LTDJIPTV-DJTV">中兴</option>        
+                            </select>
+                            {$page} 每页显示: {$pagesize} 条 ,&nbsp;&nbsp;共: {$count} 条
+                        </div>
+                        
+                        <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div>
+    </div><!-- /.main-content -->
+    <include file="Public/footer"/>
+
+</div><!-- /.main-container -->
+
+<include file="Public/footerjs"/>
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
+    $(function () {
+        $(".check-all").click(function () {
+            $(".aids").prop("checked", this.checked);
+        });
+        $(".aids").click(function () {
+            var option = $(".ids");
+            option.each(function (i) {
+                if (!this.checked) {
+                    $(".check-all").prop("checked", false);
+                    return false;
+                } else {
+                    $(".check-all").prop("checked", true);
+                }
+            });
+        });      
+        $("#del").click(function () {
+    		if(!$('.aids').is(':checked')) {
+   		     	layer.msg('请选择要删除的节目！');  
+   		     	return;
+   		    }
+            bootbox.confirm({
+                title: "系统提示",
+                message: "是否要删除所选节目？",
+                callback: function (result) {
+                    if (result) {
+                    	$("form").attr("action","del").submit();
+                        //$("#form").submit();
+                    }
+                },
+                buttons: {
+                    "cancel": {"label": "取消"},
+                    "confirm": {
+                        "label": "确定",
+                        "className": "btn-danger"
+                    }
+                }
+            });
+        });
+        $(".del").click(function () {
+            var url = $(this).attr('val');
+            bootbox.confirm({
+                title: "系统提示",
+                message: "是否要删除该节目？",
+                callback: function (result) {
+                    if (result) {
+                        window.location.href = url;
+                    }
+                },
+                buttons: {
+                    "cancel": {"label": "取消"},
+                    "confirm": {
+                        "label": "确定",
+                        "className": "btn-danger"
+                    }
+                }
+            });
+        });
+        //注入
+        $("#inject").click(function () {
+    		if(!$('.aids').is(':checked')) {
+   		     	layer.msg('请选择要注入的节目！');  
+   		     	return;
+   		    }
+     		else if($("#select_firms").val()==0){
+    			layer.msg('请选择注入厂商！');
+    			return;
+    		} 
+     		else{     			
+     			//hidden fields firms 赋值     			
+     			$("input[name=firms]").val($("#select_firms").val());
+     		}
+            bootbox.confirm({
+                title: "系统提示",
+                message: "是否要注入所选节目？",
+                callback: function (result) {
+                    if (result) {
+                    	$("form").attr("action","{:U('Program/inject')}").submit();
+                    }
+                },
+                buttons: {
+                    "cancel": {"label": "取消"},
+                    "confirm": {
+                        "label": "确定",
+                        "className": "btn-danger"
+                    }
+                }
+            });
+        });        
+        
+    })
+</script>
+</body>
+</html>
