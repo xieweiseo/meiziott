@@ -1,2 +1,2 @@
 Meiziott
-Management System Based on qwadmin thinkphp3.2.3
+Management System Based on Qwadmin thinkphp3.2.3
